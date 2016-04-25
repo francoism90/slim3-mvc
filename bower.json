@@ -1,0 +1,30 @@
+{
+  "name": "assets",
+  "version": "0.1",
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap": "latest"
+  },
+  "install": {
+    "base": "public/assets/vendor",
+    "path": {
+      "js": "{name}/js",
+      "css": "{name}/css",
+      "/[sc|le]ss$/": "{name}/css",
+      "eot": "{name}/fonts",
+      "svg": "{name}/fonts",
+      "ttf": "{name}/fonts",
+      "woff": "{name}/fonts",
+      "woff2": "{name}/fonts"
+  },
+  "sources": {
+    "jquery": "bower_components/jquery/dist/jquery.min.js",
+    "bootstrap": [
+      "bower_components/bootstrap/dist/js/bootstrap.min.js",
+      "bower_components/bootstrap/dist/css/bootstrap.min.css",
+      "bower_components/bootstrap/dist/css/bootstrap-theme.min.css",
+      "bower_components/bootstrap/dist/fonts/*.*"
+    ]
+  }
+ }
+}

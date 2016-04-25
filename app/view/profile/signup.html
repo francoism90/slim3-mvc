@@ -1,0 +1,39 @@
+{% set title = 'Sign Up' %}
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{% trans "Sign Up" %}</h1>
+<form id="signup">
+  <input type="hidden" name="{{ token.name }}" value="{{ token.value }}">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}
+
+{% block scrip %}
+{{ parent() }}
+<script>
+$('#signup').submit(function(event) {
+  event.preventDefault();
+  $.ajax({
+    cache: false,
+    dataType: 'json',
+    data: $('#signup').serialize(),
+    type: 'PUT',
+    url: 'profile/process',
+    success: function (response) {
+      console.log(response.msg);
+
+    }
+  });
+});
+</script>
+{% endblock %}
